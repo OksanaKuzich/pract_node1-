@@ -1,5 +1,3 @@
-// console.log('Hello from Oksana --')
-
 const express = require("express");
 require("colors");
 const path = require("path");
