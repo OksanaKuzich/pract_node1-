@@ -13,15 +13,43 @@ filmsRouter.post(
 );
 
 // отримати всі фільми
-filmsRouter.get("/films", filmsController.getAll);
+filmsRouter.get(
+  "/films",
+  (res, req, next) => {
+    console.log("Joi validation");
+    next();
+  },
+  filmsController.getAll
+);
 
 // отримати один фільм
-filmsRouter.get("/films/:id", filmsController.getOne);
+filmsRouter.get(
+  "/films/:id",
+  (res, req, next) => {
+    console.log("Joi validation");
+    next();
+  },
+  filmsController.getOne
+);
 
 // обновити фільм
-filmsRouter.put("/films/:id", filmsController.updateFilm);
+filmsRouter.put(
+  "/films/:id",
+  (res, req, next) => {
+    console.log("Joi validation");
+    next();
+  },
+  filmsController.updateFilm
+);
 
 // видалити фільм
-filmsRouter.delete("/films/:id", filmsController.removeFilm);
+filmsRouter.delete(
+  "/films/:id",
+  (res, req, next) => {
+    console.log("Joi validation");
+    next();
+  },
+  filmsController.removeFilm
+);
 
 module.exports = filmsRouter;
