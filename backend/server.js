@@ -1,7 +1,10 @@
 const express = require("express");
+const path = require("path");
+const connectDB = require("../config/db");
+const errorHandler = require("./middlewares/errorHandler");
+
 require("colors");
 
-const path = require("path");
 const configPath = path.join(__dirname, "..", "config", ".env");
 require("dotenv").config({ path: configPath });
 
@@ -9,12 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const { PORT = 5001 } = process.env;
-const connectDB = require("../config/db");
 
 // setRoutes
 app.use("/api/v1", require("./routes/filmsRoutes"));
 
-const errorHandler = require("./middlewares/errorHandler");
 app.use(errorHandler);
 
 connectDB();
